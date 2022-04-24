@@ -14,7 +14,7 @@
 5. Write a Java program to find the frequency of a given character in a string.
 6. Write a Java program that checks whether a given string is a palindrome or not. (Ex : MALAYALAM is a palindrome.)
 
-#### Week3: Basic Programs III - Arrays
+#### Week 3: Basic Programs III - Arrays
 7. Write a Java program to multiply two given matrices.
 8. Write a Java program to find the largest element in a matrix and its transpose.
 
