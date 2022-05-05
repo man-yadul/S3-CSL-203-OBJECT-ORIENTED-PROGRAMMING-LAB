@@ -15,16 +15,17 @@ class Calculator implements ActionListener {
     Calculator() {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(325, 440);
-        frame.setLayout(null);
+ 	    // frame.setLayout(new GridLayout(3, 1));
+	    frame.setLayout(null);
+	    frame.setSize(310, 400);
       
         textfield = new JTextField();
-        textfield.setBounds(5, 5, 300, 50);
+	    textfield.setBounds(5, 5, 300, 50);
         textfield.setEditable(false);
-      
+
         numberpanel = new JPanel();
-        numberpanel.setBounds(5, 95, 300, 300);
-        numberpanel.setLayout(new GridLayout(4, 4, 5, 5));
+	    numberpanel.setBounds(5, 95, 300, 300);
+        numberpanel.setLayout(new GridLayout(4, 4));
       
         divide = new JButton("/");
         multiply = new JButton("X");
@@ -33,7 +34,7 @@ class Calculator implements ActionListener {
         decimal = new JButton(".");
         equals = new JButton("=");
         clear = new JButton("CLR");
-        clear.setBounds(5, 60, 300, 30);
+	    clear.setBounds(5, 60, 300, 30);
       
         functions[0] = divide;
         functions[1] = multiply;
@@ -71,9 +72,10 @@ class Calculator implements ActionListener {
         numberpanel.add(equals);
         numberpanel.add(add);
       
-        frame.add(numberpanel);
-        frame.add(clear);
         frame.add(textfield);
+        frame.add(clear);
+        frame.add(numberpanel);
+	    // frame.pack();
         frame.setVisible(true);
     }
 
@@ -118,6 +120,7 @@ class Calculator implements ActionListener {
                         if (num2 == 0)
                             throw new ArithmeticException();
                         result = num1 / num2;
+			textfield.setText(String.valueOf(result));
                     }
 
                     catch (ArithmeticException ex) {
@@ -147,6 +150,7 @@ class Calculator implements ActionListener {
             }
             num1 = result;
         }
+
         if (e.getSource() == clear) {
             textfield.setText("");
             num1 = num2 = result = 0;
